@@ -1,4 +1,4 @@
-    using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,8 +20,6 @@ public class RingTossWinTrigger : MonoBehaviour
         if (collideOnce == true)
         {
             Debug.Log("Win");
-            var renderStick = stick.GetComponent<Renderer>();
-            renderStick.material.SetColor("_Color", Color.green);
             collideOnce = false;
         }
     }
@@ -32,6 +30,9 @@ public class RingTossWinTrigger : MonoBehaviour
         if(other.gameObject.tag == "RingWinTrigger")
         {
             collideOnce = true;
+
+            var renderStick = stick.GetComponent<Renderer>();
+            renderStick.material.SetColor("_Color", Color.green);
         }
     }
 
@@ -40,6 +41,9 @@ public class RingTossWinTrigger : MonoBehaviour
         if (other.gameObject.tag == "RingWinTrigger")
         {
             collideOnce = false;
+
+            var renderStick = stick.GetComponent<Renderer>();
+            renderStick.material.SetColor("_Color", Color.white);
         }
     }
 }
